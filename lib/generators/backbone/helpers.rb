@@ -54,9 +54,6 @@ module Backbone
         '/' + namespaces.join('/')
       end
 
-      def namespace_path(path, namespace="/")
-        File.join(".", path, namespace)
-      end
 
     end
   end
