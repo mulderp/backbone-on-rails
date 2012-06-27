@@ -7,10 +7,13 @@ require_relative "../../lib/generators/backbone/install/install_generator.rb"
 describe Backbone::Generators::InstallGenerator do
 
   # Tell the generator where to put its output (what it thinks of as Rails.root)
-  destination "spec/rails_app"
-  #before do
-  #  prepare_destination
-  #end
+  destination "tmp/rails_app"
+
+  # use clean app: rails new rails_app --skip-gemfil --skip-git --skip-bundle --skip-active-record --no-production
+  before do
+    prepare_destination
+    copy_rails_app
+  end
 
   describe "parse_existing_lib" do
     it "returns libs defined in manifest" do
