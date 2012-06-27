@@ -45,6 +45,19 @@ module Backbone
                  :existing_libs => existing_libs}
       end
 
+      def parse_existing_lib
+        manifest_path = "#{js_path}/#{options[:manifest]}"
+        if File.exists?(manifest_path)
+          manifest = File.open(manifest_path)
+          libs = manifest.readlines.each do |requires|
+            if requires.match(/require/)
+              puts requires
+            end
+          end
+        end
+        libs
+      end
+
       def create_dir_layout
         %W{collections models routers views}.each do |dir|
           empty_directory "#{js_path}#{namespaced_path}/#{dir}"

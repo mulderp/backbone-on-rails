@@ -18,4 +18,10 @@ describe Backbone::Generators::InstallGenerator do
     end
   end
 
+  describe "parse_existing_lib" do
+    it "returns libs defined in manifest" do
+      generator.parse_existing_lib.should == 1
+    end
+  end
+
 end
