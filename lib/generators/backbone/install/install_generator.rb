@@ -38,6 +38,13 @@ module Backbone
         end
       end
 
+      def assets_javascript_libs
+        existing_libs = []
+        libs = { :vendor => [ 'underscore', 'backbone' ],
+                 :backbone_mvc => ["../templates#{namespaced_path}", namespace_path("/models", namespaced_path), namespace_path("collections"), namespace_path("views", namespaced_path), namespace_path("routers", namespaced_path)],
+                 :existing_libs => existing_libs}
+      end
+
       def create_dir_layout
         %W{collections models routers views}.each do |dir|
           empty_directory "#{js_path}#{namespaced_path}/#{dir}"
