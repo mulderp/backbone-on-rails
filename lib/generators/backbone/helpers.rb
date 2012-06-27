@@ -54,7 +54,6 @@ module Backbone
         '/' + namespaces.join('/')
       end
 
-
     end
   end
 end

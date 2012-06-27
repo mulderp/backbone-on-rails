@@ -42,7 +42,6 @@ module Backbone
         end
 
       end
-
       def create_dir_layout
         %W{collections models routers views}.each do |dir|
           empty_directory "#{js_path}#{namespaced_path}/#{dir}"
@@ -52,13 +51,11 @@ module Backbone
           empty_directory "#{asset_path}/#{dir}#{namespaced_path}"
         end
       end
- 
       def create_app_file
         js = options[:javascript]
         ext = js ? ".js" : ".js.coffee"
         template "app#{ext}", "#{js_path}/#{app_filename}#{ext}"
       end
- 
     end
   end
 end
